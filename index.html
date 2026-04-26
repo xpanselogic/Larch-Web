@@ -277,6 +277,27 @@
     footer a { color: var(--text-dimmer); }
     footer a:hover { color: var(--text); }
 
+    /* Scroll-to-top button */
+    .scroll-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--accent-strong); color: #fff;
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.35);
+      opacity: 0; transform: translateY(8px); pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease, background 0.15s;
+      z-index: 20;
+    }
+    .scroll-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .scroll-top:hover { background: var(--accent); }
+    .scroll-top svg { width: 20px; height: 20px; }
+    .logo { text-decoration: none; cursor: pointer; }
+    .logo:hover { color: #fff; }
+    @media (max-width: 640px) {
+      .scroll-top { bottom: 20px; right: 20px; width: 44px; height: 44px; }
+    }
+
     /* Scroll-triggered fade-up */
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
     .reveal.in { opacity: 1; transform: translateY(0); }
@@ -312,9 +333,9 @@
 
 <nav>
   <div class="container">
-    <div class="logo">
+    <a href="#" class="logo" data-scroll-top aria-label="Back to top">
       <span class="logo-mark">R</span> Renderment
-    </div>
+    </a>
     <ul>
       <li><a href="#features">Features</a></li>
       <li><a href="#pricing">Pricing</a></li>
@@ -558,21 +579,43 @@
   </div>
 </footer>
 
+<button id="scrollTopBtn" class="scroll-top" aria-label="Scroll to top" type="button">
+  <svg fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6"/><path d="M5 13l7-7 7 7"/></svg>
+</button>
+
 <script>
   (function() {
     if (!('IntersectionObserver' in window)) {
       document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el) { el.classList.add('in'); });
-      return;
+    } else {
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el) { io.observe(el); });
     }
-    var io = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el) { io.observe(el); });
+
+    function scrollToTop() {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    }
+    document.querySelectorAll('[data-scroll-top]').forEach(function(el) {
+      el.addEventListener('click', function(e) { e.preventDefault(); scrollToTop(); });
+    });
+    var btn = document.getElementById('scrollTopBtn');
+    if (btn) {
+      var update = function() {
+        if (window.scrollY > 600) btn.classList.add('visible');
+        else btn.classList.remove('visible');
+      };
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+      btn.addEventListener('click', scrollToTop);
+    }
   })();
 </script>
 
