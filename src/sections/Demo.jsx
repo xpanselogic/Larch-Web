@@ -23,6 +23,7 @@ export default function Demo() {
 
   return (
     <section data-screen-label="05 Live demo" style={{ background: C.paper2, padding: '120px 56px 100px', borderTop: `1px solid ${C.b}` }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
       <SectionHead
         folio="№ 05"
         eyebrow="A real conversation"
@@ -88,6 +89,7 @@ export default function Demo() {
             <div style={{ fontFamily: fonts.serif, fontStyle: 'italic', fontSize: 14, color: C.ink, lineHeight: 1.5 }}>The shop owner saw this on the morning summary, gave the AI a 👍 on its reply, and it learned a little more about how Sterling talks.</div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

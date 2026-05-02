@@ -31,6 +31,7 @@ export default function HowItWorks() {
 
   return (
     <section data-screen-label="02 How it works" style={{ background: C.bg, padding: '120px 56px 100px', position: 'relative', borderTop: `1px solid ${C.b}` }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
       <SectionHead
         folio="№ 02"
         eyebrow="How it works"
@@ -57,6 +58,7 @@ export default function HowItWorks() {
             <StepIllo kind={s.illo} />
           </article>
         ))}
+      </div>
       </div>
     </section>
   );

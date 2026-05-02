@@ -1,5 +1,6 @@
 import React from 'react';
 import HeroField from './sections/HeroField.jsx';
+import BuiltFor from './sections/BuiltFor.jsx';
 import HowItWorks from './sections/HowItWorks.jsx';
 import Features from './sections/Features.jsx';
 import Everything from './sections/Everything.jsx';
@@ -13,6 +14,7 @@ export default function RendermentPage() {
       <div className="rm-hero-wrap" data-screen-label="01 Hero">
         <HeroField />
       </div>
+      <BuiltFor />
       <HowItWorks />
       <Features />
       <Everything />

@@ -16,13 +16,13 @@ export default function HeroField() {
       <div style={{ position: 'absolute', top: 24, right: 56, fontFamily: 'Instrument Serif, serif', fontSize: 14, color: C.m, fontStyle: 'italic' }}>№ 01 · The Field</div>
 
       <nav style={{ position: 'relative', zIndex: 2, padding: '24px 56px', borderBottom: `1px solid ${C.b}` }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: 1240 - 112, margin: '0 auto' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: 1280 - 112, margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             <div style={{ fontFamily: 'Instrument Serif, serif', fontSize: 26, fontWeight: 400, letterSpacing: '-0.02em', fontStyle: 'italic', color: C.a }}>R</div>
             <span style={{ fontWeight: 600, fontSize: 17, letterSpacing: '-0.02em' }}>Renderment</span>
           </div>
           <div style={{ display: 'flex', gap: 32, fontSize: 14, color: C.ink, alignItems: 'center' }}>
-            {['Product', 'Pricing', 'Customers', 'Changelog'].map(x => <span key={x} style={{ cursor: 'pointer' }}>{x}</span>)}
+            {['Product', 'Pricing', 'Customers'].map(x => <span key={x} style={{ cursor: 'pointer' }}>{x}</span>)}
             <span style={{ width: 1, height: 16, background: C.b }} />
             <span style={{ cursor: 'pointer' }}>Sign in</span>
             <button style={{ background: C.ink, color: C.bg, border: 'none', padding: '10px 18px', borderRadius: 6, fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>Start trial</button>
@@ -30,7 +30,7 @@ export default function HeroField() {
         </div>
       </nav>
 
-      <div style={{ position: 'relative', zIndex: 2, display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 64, padding: '56px 56px 0', maxWidth: 1240, margin: '0 auto' }}>
+      <div style={{ position: 'relative', zIndex: 2, display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 64, padding: '56px 56px 0', maxWidth: 1280, margin: '0 auto' }}>
         <div>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 12, color: C.a, fontFamily: 'Geist Mono, monospace', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 32, fontWeight: 600 }}>
             <span style={{ width: 24, height: 1, background: C.a }} />
@@ -78,8 +78,11 @@ export default function HeroField() {
           </div>
         </div>
 
-        {/* Right: editorial composition with phone + ledger card */}
-        <div style={{ position: 'relative', height: 680 }}>
+        {/* Right: editorial composition with phone + ledger card.
+            Width-locked at 480 + marginLeft:auto so day-book + phone stay
+            clustered at the right edge regardless of viewport width — page
+            still autofills, but this composition doesn't drift apart. */}
+        <div style={{ position: 'relative', height: 680, width: 480, marginLeft: 'auto' }}>
           <div style={{ position: 'absolute', top: 20, right: 20, fontFamily: 'Instrument Serif, serif', fontSize: 280, lineHeight: 1, fontStyle: 'italic', color: C.a, opacity: 0.06, fontWeight: 400 }}>0{ti + 1}</div>
 
           {/* Day-book ledger card */}

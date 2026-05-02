@@ -35,6 +35,7 @@ export default function Everything() {
 
   return (
     <section data-screen-label="04 Everything else" style={{ background: C.paper2, padding: '120px 56px 100px', borderTop: `1px solid ${C.b}` }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
       <SectionHead
         folio="№ 04"
         eyebrow="Everything else"
@@ -53,6 +54,7 @@ export default function Everything() {
             </div>
           </article>
         ))}
+      </div>
       </div>
     </section>
   );

@@ -38,6 +38,7 @@ export default function Features() {
 
   return (
     <section data-screen-label="03 What it does" style={{ background: C.bg, padding: '120px 56px 100px', borderTop: `1px solid ${C.b}` }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
       <SectionHead
         folio="№ 03"
         eyebrow="What it does"
@@ -86,6 +87,7 @@ export default function Features() {
             ))}
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
