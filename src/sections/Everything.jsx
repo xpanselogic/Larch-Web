@@ -19,8 +19,8 @@ export default function Everything() {
     { tag: 'Reviews', title: 'Google reviews on autopilot.',
       body: '24 hrs after a job closes, the customer gets a polite text with the review link. Free local-SEO juice while you sleep.',
       visual: 'rev' },
-    { tag: 'Bulk SMS', title: 'Tell 500 customers at once.',
-      body: 'Seasonal promos, holiday closures, "we\'re booking up." Compose, preview, send. Especially powerful before HVAC season.',
+    { tag: 'Bulk SMS', title: 'Tell 100 customers at once.',
+      body: 'Holiday hours, route delays, weather closures, "we\'re booking up next week." Compose, preview, send to your existing customers — operational updates, not marketing blasts.',
       visual: 'bulk' },
     { tag: 'Analytics', title: 'Your numbers, without a spreadsheet.',
       body: 'Messages per day, revenue per month, busiest weekdays, top customers, response rate. The chart pack you never had time to build.',
@@ -106,9 +106,9 @@ function EverythingVisual({ kind }) {
   );
   if (kind === 'bulk') return (
     <div style={box}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}><span>RECIPIENTS</span><span style={{ color: C.ink }}>342</span></div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}><span>RECIPIENTS</span><span style={{ color: C.ink }}>64</span></div>
       <div style={{ height: 5, background: C.b, borderRadius: 3, overflow: 'hidden', marginBottom: 6 }}><div style={{ width: '68%', height: '100%', background: C.a }} /></div>
-      <div style={{ color: C.ink, fontFamily: fonts.serif, fontStyle: 'italic', fontSize: 11 }}>"Furnace tune-up special: $89 thru Sunday."</div>
+      <div style={{ color: C.ink, fontFamily: fonts.serif, fontStyle: 'italic', fontSize: 11 }}>"Holiday hours: closed Wed 7/4, back Thu. Stay safe out there."</div>
     </div>
   );
   if (kind === 'chart') return (
