@@ -13,7 +13,7 @@ const TRADES = [
 
 export default function BuiltFor() {
   return (
-    <section data-screen-label="01b Built for" style={{ background: C.paper2, padding: '72px 56px', borderTop: `1px solid ${C.b}`, borderBottom: `1px solid ${C.b}` }}>
+    <section id="customers" data-screen-label="01b Built for" style={{ background: C.paper2, padding: '72px 56px', borderTop: `1px solid ${C.b}`, borderBottom: `1px solid ${C.b}`, scrollMarginTop: 80 }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 28 }}>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: 12, fontFamily: fonts.mono, fontSize: 11, color: C.a, letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600 }}>

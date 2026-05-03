@@ -30,7 +30,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section data-screen-label="02 How it works" style={{ background: C.bg, padding: '120px 56px 100px', position: 'relative', borderTop: `1px solid ${C.b}` }}>
+    <section id="how-it-works" data-screen-label="02 How it works" style={{ background: C.bg, padding: '120px 56px 100px', position: 'relative', borderTop: `1px solid ${C.b}`, scrollMarginTop: 80 }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
       <SectionHead
         folio="№ 02"

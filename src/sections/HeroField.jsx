@@ -22,10 +22,16 @@ export default function HeroField() {
             <span style={{ fontWeight: 600, fontSize: 17, letterSpacing: '-0.02em' }}>Renderment</span>
           </div>
           <div style={{ display: 'flex', gap: 32, fontSize: 14, color: C.ink, alignItems: 'center' }}>
-            {['Product', 'Pricing', 'Customers'].map(x => <span key={x} style={{ cursor: 'pointer' }}>{x}</span>)}
+            {[
+              ['Product', '#product'],
+              ['Pricing', '#pricing'],
+              ['Customers', '#customers'],
+            ].map(([label, href]) => (
+              <a key={label} href={href} style={{ cursor: 'pointer', color: 'inherit', textDecoration: 'none' }}>{label}</a>
+            ))}
             <span style={{ width: 1, height: 16, background: C.b }} />
-            <span style={{ cursor: 'pointer' }}>Sign in</span>
-            <button style={{ background: C.ink, color: C.bg, border: 'none', padding: '10px 18px', borderRadius: 6, fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>Start trial</button>
+            <a href="https://app.renderment.com/login" style={{ cursor: 'pointer', color: 'inherit', textDecoration: 'none' }}>Sign in</a>
+            <a href="https://app.renderment.com/register" style={{ background: C.ink, color: C.bg, padding: '10px 18px', borderRadius: 6, fontSize: 13, fontWeight: 600, cursor: 'pointer', textDecoration: 'none', display: 'inline-block' }}>Start trial</a>
           </div>
         </div>
       </nav>
@@ -61,13 +67,13 @@ export default function HeroField() {
           </div>
 
           <div style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
-            <button style={{ background: C.a, color: '#fff', border: 'none', padding: '15px 24px', borderRadius: 8, fontSize: 15, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+            <a href="https://app.renderment.com/register" style={{ background: C.a, color: '#fff', padding: '15px 24px', borderRadius: 8, fontSize: 15, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
               Start free for 14 days
               <span style={{ fontFamily: 'Instrument Serif, serif', fontStyle: 'italic' }}>↗</span>
-            </button>
-            <button style={{ background: 'transparent', color: C.ink, border: 'none', padding: '15px 0', fontSize: 15, fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit', textDecoration: 'underline', textUnderlineOffset: 6 }}>
+            </a>
+            <a href="#how-it-works" style={{ background: 'transparent', color: C.ink, padding: '15px 0', fontSize: 15, fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit', textDecoration: 'underline', textUnderlineOffset: 6 }}>
               Read the manifesto
-            </button>
+            </a>
           </div>
 
           <div style={{ marginTop: 48, paddingTop: 24, borderTop: `1px solid ${C.b}`, display: 'flex', gap: 36 }}>

@@ -37,7 +37,7 @@ export default function Features() {
   };
 
   return (
-    <section data-screen-label="03 What it does" style={{ background: C.bg, padding: '120px 56px 100px', borderTop: `1px solid ${C.b}` }}>
+    <section id="product" data-screen-label="03 What it does" style={{ background: C.bg, padding: '120px 56px 100px', borderTop: `1px solid ${C.b}`, scrollMarginTop: 80 }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
       <SectionHead
         folio="№ 03"

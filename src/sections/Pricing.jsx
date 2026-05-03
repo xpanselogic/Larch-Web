@@ -18,7 +18,7 @@ export default function Pricing() {
   ];
 
   return (
-    <section data-screen-label="06 Pricing" style={{ background: C.bg, padding: '120px 56px 100px', borderTop: `1px solid ${C.b}` }}>
+    <section id="pricing" data-screen-label="06 Pricing" style={{ background: C.bg, padding: '120px 56px 100px', borderTop: `1px solid ${C.b}`, scrollMarginTop: 80 }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
       <SectionHead
         folio="№ 06"
@@ -54,15 +54,16 @@ export default function Pricing() {
               billed monthly · cancel anytime
             </div>
 
-            <button style={{
-              width: '100%', background: C.a, color: '#fff', border: 'none',
+            <a href="https://app.renderment.com/register" style={{
+              width: '100%', background: C.a, color: '#fff',
               padding: '15px 22px', borderRadius: 8, fontSize: 15, fontWeight: 600,
               cursor: 'pointer', fontFamily: fonts.body, display: 'inline-flex',
               alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 12,
+              textDecoration: 'none', boxSizing: 'border-box',
             }}>
               Start your 14-day trial
               <span style={{ fontFamily: fonts.serif, fontStyle: 'italic' }}>↗</span>
-            </button>
+            </a>
             <div style={{ fontSize: 12, color: C.m, fontFamily: fonts.serif, fontStyle: 'italic', textAlign: 'center' }}>
               No credit card required.
             </div>

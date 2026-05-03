@@ -20,8 +20,8 @@ export default function CTA() {
           Setup in an afternoon. Free for 14 days. Cancel by reply.
         </p>
         <div style={{ marginTop: 42, display: 'flex', gap: 14, justifyContent: 'center' }}>
-          <button style={{ background: C.a, color: '#fff', border: 'none', padding: '17px 30px', borderRadius: 8, fontSize: 16, fontWeight: 600, cursor: 'pointer', fontFamily: fonts.body }}>Start your trial →</button>
-          <button style={{ background: 'transparent', color: C.bg, border: `1px solid rgba(245,241,232,0.3)`, padding: '17px 28px', borderRadius: 8, fontSize: 16, fontWeight: 500, cursor: 'pointer', fontFamily: fonts.body }}>Book a 15-min demo</button>
+          <a href="https://app.renderment.com/register" style={{ background: C.a, color: '#fff', padding: '17px 30px', borderRadius: 8, fontSize: 16, fontWeight: 600, cursor: 'pointer', fontFamily: fonts.body, textDecoration: 'none', display: 'inline-block' }}>Start your trial →</a>
+          <a href="mailto:support@renderment.com?subject=Demo%20request" style={{ background: 'transparent', color: C.bg, border: `1px solid rgba(245,241,232,0.3)`, padding: '17px 28px', borderRadius: 8, fontSize: 16, fontWeight: 500, cursor: 'pointer', fontFamily: fonts.body, textDecoration: 'none', display: 'inline-block' }}>Book a 15-min demo</a>
         </div>
         <div style={{ marginTop: 36, fontFamily: fonts.serif, fontStyle: 'italic', fontSize: 15, color: 'rgba(245,241,232,0.55)' }}>
           No credit card. No 12-month contract. No "let me transfer you to sales."
