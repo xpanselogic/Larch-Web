@@ -233,9 +233,9 @@ export default function FeatureMock({ id }) {
             <div style={{ flex: 1, padding: '16px 20px', display: 'flex', flexDirection: 'column', gap: 10, overflow: 'hidden' }}>
               {[
                 { f: 'c', t: "Hey, water heater stopped working last night. Any chance you can come today?", time: '9:38' },
-                { f: 'a', t: "Hi Janet — sorry to hear that. I have a 2pm slot today with Mike. Diagnostic is $89, applied to repair. Want me to book it?", time: '9:38', rated: 'up' },
-                { f: 'c', t: "Yes please.", time: '9:39' },
-                { f: 'a', t: "Booked. You'll get a text when Mike's 20 min out.", time: '9:39', rated: null },
+                { f: 'a', t: "Hi Janet — sorry to hear that. Mike's running the truck today; he'll text you with a window once he's clear of his morning job.", time: '9:38', rated: 'up' },
+                { f: 'c', t: "Sounds good, thanks.", time: '9:39' },
+                { f: 'a', t: "Got it — passing your number to Mike now. He'll text 20 min before he heads out.", time: '9:39', rated: null },
               ].map((m, i) => (
                 <div key={i} style={{ alignSelf: m.f === 'c' ? 'flex-start' : 'flex-end', maxWidth: '80%' }}>
                   {m.f === 'a' && <div style={{ fontFamily: fonts.mono, fontSize: 9, color: C.a, marginBottom: 3, paddingLeft: 4, letterSpacing: '0.06em' }}>RENDERMENT · AI</div>}

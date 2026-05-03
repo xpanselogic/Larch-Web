@@ -7,11 +7,11 @@ export default function Demo() {
 
   const script = [
     { f: 'c', t: "Hi, my furnace is making a clunking noise. Can someone come look?", time: '10:42 PM' },
-    { f: 'a', t: "Hi — sorry to hear that. Sounds like a blower or motor issue. I have Tony available tomorrow at 9am or Mike at 1pm. Diagnostic is $89, applied to any repair.", time: '10:42 PM', meta: 'Replied in 0.6s' },
-    { f: 'c', t: "9am works. We're at 4214 Birch.", time: '10:43 PM' },
-    { f: 'a', t: "Booked Tony for 9am Tuesday at 4214 Birch. He'll text 20 min before arrival. Heads up — temps dropping to 28° tonight. If it stops heating entirely, reply URGENT.", time: '10:43 PM', meta: 'Job created · QT-2289 drafted · Calendar held' },
+    { f: 'a', t: "Sorry to hear that. I'll let our on-call tech know first thing tomorrow — they'll text you a window. If it stops heating entirely tonight, reply URGENT and we'll get someone out.", time: '10:42 PM', meta: 'Replied in 0.6s' },
+    { f: 'c', t: "Sounds good. We're at 4214 Birch.", time: '10:43 PM' },
+    { f: 'a', t: "Got it — 4214 Birch logged. The tech will text you a confirmed window before 8am. Hang tight.", time: '10:43 PM', meta: 'Address captured · flagged for human confirmation' },
     { f: 'c', t: "Thank you. Honestly didn't expect a real reply at 11pm.", time: '10:44 PM' },
-    { f: 'a', t: "Anytime. We're around. — Sterling Plumbing & HVAC", time: '10:44 PM', meta: 'Conversation closed · No human escalation needed' },
+    { f: 'a', t: "Anytime — that's why I'm here. The shop will see this on the morning summary. — Sterling Plumbing & HVAC", time: '10:44 PM', meta: 'Conversation queued · ready for shop review' },
   ];
 
   React.useEffect(() => {
@@ -28,7 +28,7 @@ export default function Demo() {
         folio="№ 05"
         eyebrow="A real conversation"
         title={<>Watch it work, <span style={{ fontStyle: 'italic', color: C.a }}>at 10:42 PM.</span></>}
-        kicker="A customer with a busted furnace. A shop owner asleep. The agent does what a good front-desk would do — politely, accurately, and without waking anyone up."
+        kicker="A customer with a busted furnace. A shop owner asleep. The agent does what a good front-desk would do — answers in your voice, captures what the tech needs, and tags it for you to confirm in the morning."
       />
 
       <div style={{ marginTop: 64, display: 'grid', gridTemplateColumns: '1fr 380px', gap: 40, alignItems: 'start' }}>
@@ -64,13 +64,13 @@ export default function Demo() {
           <div style={{ fontFamily: fonts.mono, fontSize: 10, color: C.m, letterSpacing: '0.1em', marginBottom: 18 }}>BEHIND THE SCENES</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
             {[
-              ['Read the message', 'HVAC · noise complaint · likely blower'],
-              ['Pulled history', 'Janet · customer since 2022 · 4 prior jobs'],
-              ['Checked the calendar', 'Tony free at 9am, Mike at 1pm'],
-              ['Quoted from your price book', 'Diag $89 · applied to repair'],
-              ['Held a slot, then booked', 'Tentative until "yes please"'],
-              ['Created the job', 'JOB-0042 drafted · QuickBooks synced'],
-              ['Flagged a risk', "Tonight's low: 28°. Escalation rule set."],
+              ['Read the message', '"My furnace is making a clunking noise" · 10:42 PM'],
+              ['Pulled the conversation', 'Last 10 messages with Janet · your tone · your custom rules'],
+              ['Stayed in your guardrails', "No quoted price. No promised slot. No commitment you didn't make."],
+              ['Wrote in your voice', 'Tuned by the replies you thumbed up'],
+              ['Honored your urgency rule', '"Late-night calls → tag URGENT path, escalate to on-call"'],
+              ['Posted the reply', 'Through your Twilio number · 0.6s end-to-end'],
+              ['Flagged for handoff', 'Address captured · waiting on you to confirm a window'],
               ['Asked you to grade it', 'Thumbs up/down on every reply →'],
             ].map(([h, b], i) => {
               const on = i < Math.min(step, 8);
@@ -86,7 +86,7 @@ export default function Demo() {
             })}
           </div>
           <div style={{ marginTop: 24, padding: 14, background: C.paper, border: `1px solid ${C.b}`, borderLeft: `2px solid ${C.a}`, borderRadius: 6 }}>
-            <div style={{ fontFamily: fonts.serif, fontStyle: 'italic', fontSize: 14, color: C.ink, lineHeight: 1.5 }}>The shop owner saw this on the morning summary, gave the AI a 👍 on its reply, and it learned a little more about how Sterling talks.</div>
+            <div style={{ fontFamily: fonts.serif, fontStyle: 'italic', fontSize: 14, color: C.ink, lineHeight: 1.5 }}>The shop owner saw this on the morning summary, dispatched Tony for 9am, and gave the AI a 👍 on its reply. Next time, it talks even more like Sterling does.</div>
           </div>
         </div>
       </div>

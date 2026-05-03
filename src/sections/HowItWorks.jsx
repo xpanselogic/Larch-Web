@@ -15,16 +15,16 @@ export default function HowItWorks() {
     },
     {
       n: '02',
-      eyebrow: 'It learns the shop',
-      title: <>It reads how you<br /><span style={{ fontStyle: 'italic', color: C.a }}>actually</span> work.</>,
-      body: 'Renderment ingests your past jobs, pricing, and customer history. It quotes the way you quote, books the way you book, and writes back in your voice.',
+      eyebrow: 'It learns your voice',
+      title: <>It writes like<br /><span style={{ fontStyle: 'italic', color: C.a }}>you</span> would.</>,
+      body: "Set your tone. Add your custom rules. Thumb up the replies you like, thumb down the ones you don't. Renderment writes back like your shop — not like a robot — in seconds, at any hour.",
       illo: 'brain',
     },
     {
       n: '03',
-      eyebrow: 'It runs the front desk',
-      title: <>You stay on the truck.<br />It handles the rest.</>,
-      body: 'Customers text, the AI replies. Quotes go out, invoices go in. You get a clean ledger every Friday and a notification only when something needs you.',
+      eyebrow: 'It handles the inbox',
+      title: <>You stay on the truck.<br />It keeps the conversation going.</>,
+      body: "Customers text, the AI replies in your voice. You jump in to send the quote, log the job, mark the invoice paid — fast, from your phone. Reviews, reminders, and confirms send themselves. You're notified only when something needs you.",
       illo: 'truck',
     },
   ];
