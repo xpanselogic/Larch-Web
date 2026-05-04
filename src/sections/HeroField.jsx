@@ -14,7 +14,7 @@ export default function HeroField() {
   const C = { bg: '#f5f1e8', paper: '#fbf8f1', ink: '#1a1d2e', m: 'rgba(26,29,46,0.6)', d: 'rgba(26,29,46,0.3)', b: 'rgba(26,29,46,0.12)', a: '#c8421f' };
 
   return (
-    <div style={{ width: '100%', height: isMobile ? 'auto' : '100%', background: C.bg, color: C.ink, fontFamily: 'Geist, Inter, sans-serif', position: 'relative', overflow: 'hidden', paddingTop: isMobile ? 60 : 74, paddingBottom: isMobile ? 40 : 0 }}>
+    <div style={{ width: '100%', background: C.bg, color: C.ink, fontFamily: 'Geist, Inter, sans-serif', position: 'relative', overflow: 'hidden', paddingTop: isMobile ? 60 : 74, paddingBottom: isMobile ? 40 : 56 }}>
         {!isMobile && (
           <div style={{ position: 'absolute', top: 88, right: 56, fontFamily: 'Instrument Serif, serif', fontSize: 14, color: C.m, fontStyle: 'italic', zIndex: 1 }}>№ 01 · The Field</div>
         )}

@@ -29,10 +29,5 @@ html, body {
   50% { transform: translateY(-6px); }
 }
 
-.rm-hero-wrap { width: 100%; height: 820px; position: relative; }
-.rm-hero-wrap > div { position: absolute; inset: 0; }
-
-@media (max-width: 767px) {
-  .rm-hero-wrap { height: auto; }
-  .rm-hero-wrap > div { position: relative; inset: auto; }
-}
+.rm-hero-wrap { width: 100%; position: relative; }
+.rm-hero-wrap > div { position: relative; }
