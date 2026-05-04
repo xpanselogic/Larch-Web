@@ -19,7 +19,7 @@ export default function AiOptional() {
           Don't trust AI? <span style={{ color: C.a }}>Turn it off.</span>
         </p>
         <p style={{ fontFamily: fonts.body, fontSize: isMobile ? 14.5 : 15.5, color: C.m, lineHeight: 1.6, maxWidth: 560, margin: '0 auto' }}>
-          Disable per customer (Grandma doesn't want a robot), or shut the whole AI off in Settings. You're always in charge.
+          Disable per customer (some folks just prefer a human voice), or shut the whole AI off in Settings. You're always in charge.
         </p>
       </div>
     </section>
