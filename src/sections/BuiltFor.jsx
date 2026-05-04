@@ -25,11 +25,11 @@ export default function BuiltFor() {
           </span>
         </div>
 
-        <p style={{ fontFamily: fonts.serif, fontStyle: 'italic', fontSize: isMobile ? 20 : 28, lineHeight: 1.5, color: C.ink, textAlign: 'center', maxWidth: 1080, margin: '0 auto', letterSpacing: '-0.01em' }}>
+        <p style={{ fontFamily: fonts.serif, fontStyle: 'italic', fontSize: isMobile ? 17 : 28, lineHeight: 1.5, color: C.ink, textAlign: 'center', maxWidth: 1080, margin: '0 auto', letterSpacing: '-0.01em', wordBreak: 'normal', overflowWrap: 'break-word' }}>
           {TRADES.map((t, i) => (
             <React.Fragment key={t}>
               {t}
-              <span style={{ color: C.d, margin: '0 10px', fontStyle: 'normal' }}>·</span>
+              <span style={{ color: C.d, margin: isMobile ? '0 6px' : '0 10px', fontStyle: 'normal' }}>·</span>
             </React.Fragment>
           ))}
           <span style={{ color: C.a }}>and anyone else</span>

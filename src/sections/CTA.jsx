@@ -36,7 +36,7 @@ export default function CTA() {
             <div style={{ width: 32, height: 32, border: `1.5px solid ${C.a}`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: fonts.serif, fontStyle: 'italic', fontSize: 18, color: C.a }}>R</div>
             <div style={{ fontFamily: fonts.serif, fontSize: 22, fontStyle: 'italic', letterSpacing: '-0.01em' }}>Renderment</div>
           </div>
-          <div style={{ fontSize: 13, color: 'rgba(245,241,232,0.5)', maxWidth: 280, lineHeight: 1.55 }}>The agentic operating system for trades. Built in Oakland, deployed in 47 states.</div>
+          <div style={{ fontSize: 13, color: 'rgba(245,241,232,0.5)', maxWidth: 280, lineHeight: 1.55 }}>The agentic operating system for trades.</div>
         </div>
         {[
           ['Product', [
@@ -67,9 +67,8 @@ export default function CTA() {
         ))}
       </div>
       <div style={{ position: 'relative', maxWidth: 1240, margin: '48px auto 0', paddingTop: 24, borderTop: '1px solid rgba(245,241,232,0.08)', display: 'flex', flexDirection: isMobile ? 'column' : 'row', justifyContent: 'space-between', gap: isMobile ? 8 : 0, fontFamily: fonts.mono, fontSize: 10, color: 'rgba(245,241,232,0.4)', letterSpacing: '0.06em', textAlign: isMobile ? 'center' : 'left' }}>
-        <span>© 2026 RENDERMENT, INC.</span>
-        <span>SOC 2 · TCPA-COMPLIANT · TRUSTED BY 1,847 SHOPS</span>
-        <span>EST. 2024 · OAKLAND, CA</span>
+        <span>© 2026 RENDERMENT, LLC.</span>
+        <span>OKLAHOMA, USA</span>
       </div>
     </section>
   );

@@ -76,16 +76,27 @@ export default function Features() {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 280px', gap: isMobile ? 32 : 40, alignItems: 'start' }}>
-        <div style={{ minHeight: isMobile ? 'auto' : 520 }}>
-          <FeatureMock id={active} />
+        <div style={{ minHeight: isMobile ? 'auto' : 520, overflowX: isMobile ? 'auto' : 'visible', WebkitOverflowScrolling: 'touch' }}>
+          {isMobile ? (
+            <>
+              <div style={{ minWidth: 760 }}>
+                <FeatureMock id={active} />
+              </div>
+              <div style={{ marginTop: 8, fontFamily: fonts.mono, fontSize: 10, color: C.m, letterSpacing: '0.08em', textAlign: 'center' }}>
+                ← swipe to explore →
+              </div>
+            </>
+          ) : (
+            <FeatureMock id={active} />
+          )}
         </div>
         <div style={{ paddingTop: 8 }}>
-          <div style={{ fontFamily: fonts.mono, fontSize: 10, color: C.m, letterSpacing: '0.1em', marginBottom: 18 }}>WHAT YOU GET</div>
+          <div style={{ fontFamily: fonts.mono, fontSize: 11, color: C.a, letterSpacing: '0.12em', marginBottom: 18, fontWeight: 600 }}>WHAT YOU GET</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
             {notes[active].map(([h, b], i) => (
               <div key={i} style={{ borderLeft: `2px solid ${C.a}`, paddingLeft: 14 }}>
-                <div style={{ fontFamily: fonts.serif, fontStyle: 'italic', fontSize: 18, marginBottom: 6, letterSpacing: '-0.01em' }}>{h}</div>
-                <div style={{ fontSize: 13, color: C.m, lineHeight: 1.55 }}>{b}</div>
+                <div style={{ fontFamily: fonts.serif, fontStyle: 'italic', fontSize: isMobile ? 20 : 22, marginBottom: 6, letterSpacing: '-0.01em', color: C.ink }}>{h}</div>
+                <div style={{ fontFamily: fonts.body, fontSize: isMobile ? 14.5 : 15, color: C.m, lineHeight: 1.6 }}>{b}</div>
               </div>
             ))}
           </div>
