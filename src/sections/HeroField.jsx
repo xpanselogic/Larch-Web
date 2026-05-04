@@ -3,8 +3,10 @@
 // the day-book ledger card and phone mockup on the right, trade pills below copy.
 import React from 'react';
 import { TRADES, useSmsReveal, usePhaseProgress } from '../design/heroShared.jsx';
+import { useIsMobile } from '../hooks/useViewport.jsx';
 
 export default function HeroField() {
+  const isMobile = useIsMobile();
   const [ti, setTi] = React.useState(0);
   const t = TRADES[ti];
   const sms = useSmsReveal(t.sms, 1800);
@@ -12,27 +14,29 @@ export default function HeroField() {
   const C = { bg: '#f5f1e8', paper: '#fbf8f1', ink: '#1a1d2e', m: 'rgba(26,29,46,0.6)', d: 'rgba(26,29,46,0.3)', b: 'rgba(26,29,46,0.12)', a: '#c8421f' };
 
   return (
-    <div style={{ width: '100%', height: '100%', background: C.bg, color: C.ink, fontFamily: 'Geist, Inter, sans-serif', position: 'relative', overflow: 'hidden', paddingTop: 74 }}>
-      <div style={{ position: 'absolute', top: 88, right: 56, fontFamily: 'Instrument Serif, serif', fontSize: 14, color: C.m, fontStyle: 'italic', zIndex: 1 }}>№ 01 · The Field</div>
+    <div style={{ width: '100%', height: isMobile ? 'auto' : '100%', background: C.bg, color: C.ink, fontFamily: 'Geist, Inter, sans-serif', position: 'relative', overflow: 'hidden', paddingTop: isMobile ? 60 : 74, paddingBottom: isMobile ? 40 : 0 }}>
+        {!isMobile && (
+          <div style={{ position: 'absolute', top: 88, right: 56, fontFamily: 'Instrument Serif, serif', fontSize: 14, color: C.m, fontStyle: 'italic', zIndex: 1 }}>№ 01 · The Field</div>
+        )}
 
-      <div style={{ position: 'relative', zIndex: 2, display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 64, padding: '56px 56px 0', maxWidth: 1280, margin: '0 auto' }}>
+      <div style={{ position: 'relative', zIndex: 2, display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.2fr 1fr', gap: isMobile ? 0 : 64, padding: isMobile ? '24px 20px 0' : '56px 56px 0', maxWidth: 1280, margin: '0 auto' }}>
         <div>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 12, color: C.a, fontFamily: 'Geist Mono, monospace', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 32, fontWeight: 600 }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 12, color: C.a, fontFamily: 'Geist Mono, monospace', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: isMobile ? 20 : 32, fontWeight: 600 }}>
             <span style={{ width: 24, height: 1, background: C.a }} />
             Operations · for the trades
           </div>
 
-          <h1 style={{ fontSize: 96, lineHeight: 0.95, letterSpacing: '-0.04em', fontWeight: 400, margin: '0 0 28px 0', fontFamily: 'Instrument Serif, serif' }}>
+          <h1 style={{ fontSize: isMobile ? 44 : 96, lineHeight: isMobile ? 1.0 : 0.95, letterSpacing: '-0.04em', fontWeight: 400, margin: isMobile ? '0 0 20px 0' : '0 0 28px 0', fontFamily: 'Instrument Serif, serif' }}>
             Built for<br />the people<br />
             <span style={{ fontStyle: 'italic', color: C.a }}>who build</span><br />
             <span style={{ fontStyle: 'italic', color: C.a }}>everything else.</span>
           </h1>
 
-          <p style={{ fontSize: 19, lineHeight: 1.55, color: C.m, maxWidth: 540, margin: '0 0 36px 0' }}>
+          <p style={{ fontSize: isMobile ? 16 : 19, lineHeight: 1.55, color: C.m, maxWidth: 540, margin: isMobile ? '0 0 28px 0' : '0 0 36px 0' }}>
             Renderment is the operations OS for trade businesses — jobs, quotes, invoices, and customer texts handled in one quiet place. Made for {t.verb} who'd rather be on the truck.
           </p>
 
-          <div style={{ marginBottom: 36 }}>
+          <div style={{ marginBottom: isMobile ? 28 : 36 }}>
             <div style={{ color: C.m, marginBottom: 14, fontFamily: 'Instrument Serif, serif', fontStyle: 'italic', fontSize: 15 }}>Choose your trade —</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
               {TRADES.map((tt, i) => (
@@ -45,28 +49,29 @@ export default function HeroField() {
             </div>
           </div>
 
-          <div style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
-            <a href="https://app.renderment.com/register" style={{ background: C.a, color: '#fff', padding: '15px 24px', borderRadius: 8, fontSize: 15, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+          <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center', gap: isMobile ? 12 : 14 }}>
+            <a href="https://app.renderment.com/register" style={{ background: C.a, color: '#fff', padding: '15px 24px', borderRadius: 8, fontSize: 15, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', display: 'inline-flex', alignItems: 'center', justifyContent: isMobile ? 'center' : 'flex-start', gap: 10, textDecoration: 'none' }}>
               Start free for 14 days
               <span style={{ fontFamily: 'Instrument Serif, serif', fontStyle: 'italic' }}>↗</span>
             </a>
-            <a href="#how-it-works" style={{ background: 'transparent', color: C.ink, padding: '15px 0', fontSize: 15, fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit', textDecoration: 'underline', textUnderlineOffset: 6 }}>
+            <a href="#how-it-works" style={{ background: 'transparent', color: C.ink, padding: '15px 0', fontSize: 15, fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit', textDecoration: 'underline', textUnderlineOffset: 6, textAlign: isMobile ? 'center' : 'left' }}>
               Read the manifesto
             </a>
           </div>
 
-          <div style={{ marginTop: 48, paddingTop: 24, borderTop: `1px solid ${C.b}`, display: 'flex', gap: 36 }}>
+          <div style={{ marginTop: isMobile ? 36 : 48, paddingTop: 24, borderTop: `1px solid ${C.b}`, display: 'flex', gap: 36 }}>
             <div>
-              <div style={{ fontFamily: 'Instrument Serif, serif', fontSize: 36, fontStyle: 'italic', color: C.a, letterSpacing: '-0.02em' }}>"Saved my Saturdays."</div>
+              <div style={{ fontFamily: 'Instrument Serif, serif', fontSize: isMobile ? 26 : 36, fontStyle: 'italic', color: C.a, letterSpacing: '-0.02em' }}>"Saved my Saturdays."</div>
               <div style={{ fontSize: 13, color: C.m, marginTop: 6 }}>— Mike R., Sterling Plumbing · 18-truck shop</div>
             </div>
           </div>
         </div>
 
         {/* Right: editorial composition with phone + ledger card.
-            Width-locked at 480 + marginLeft:auto so day-book + phone stay
-            clustered at the right edge regardless of viewport width — page
-            still autofills, but this composition doesn't drift apart. */}
+            Hidden on mobile — its 480px+absolute-positioned children don't
+            fit narrow viewports gracefully and would push everything else
+            off-screen. Desktop unchanged. */}
+        {!isMobile && (
         <div style={{ position: 'relative', height: 680, width: 480, marginLeft: 'auto' }}>
           <div style={{ position: 'absolute', top: 20, right: 20, fontFamily: 'Instrument Serif, serif', fontSize: 280, lineHeight: 1, fontStyle: 'italic', color: C.a, opacity: 0.06, fontWeight: 400 }}>0{ti + 1}</div>
 
@@ -117,6 +122,7 @@ export default function HeroField() {
             </div>
           </div>
         </div>
+        )}
       </div>
     </div>
   );

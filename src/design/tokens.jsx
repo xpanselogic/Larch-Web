@@ -1,6 +1,7 @@
 // Field language — shared color tokens + small primitives reused across sections.
 // All sections import this so the whole page is consistent.
 import React from 'react';
+import { useIsMobile } from '../hooks/useViewport.jsx';
 
 export const C = {
   bg: '#f5f1e8',         // cream paper
@@ -25,17 +26,18 @@ export const fonts = {
 
 // Section header — eyebrow + folio-numbered title in editorial style
 export function SectionHead({ folio, eyebrow, title, kicker, align = 'left' }) {
+  const isMobile = useIsMobile();
   return (
     <div style={{ textAlign: align, maxWidth: align === 'center' ? 760 : 880, margin: align === 'center' ? '0 auto' : undefined }}>
       <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 11.5, color: C.a, fontFamily: fonts.mono, letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 18 }}>
         <span style={{ width: 24, height: 1, background: C.a }} />
         {folio} · {eyebrow}
       </div>
-      <h2 style={{ fontFamily: fonts.serif, fontSize: 64, lineHeight: 1.0, letterSpacing: '-0.035em', fontWeight: 400, margin: 0, color: C.ink }}>
+      <h2 style={{ fontFamily: fonts.serif, fontSize: isMobile ? 36 : 64, lineHeight: isMobile ? 1.05 : 1.0, letterSpacing: '-0.035em', fontWeight: 400, margin: 0, color: C.ink }}>
         {title}
       </h2>
       {kicker && (
-        <p style={{ fontSize: 18, lineHeight: 1.5, color: C.m, marginTop: 18, maxWidth: 560, margin: align === 'center' ? '18px auto 0' : '18px 0 0' }}>{kicker}</p>
+        <p style={{ fontSize: isMobile ? 15 : 18, lineHeight: 1.5, color: C.m, marginTop: 18, maxWidth: 560, margin: align === 'center' ? '18px auto 0' : '18px 0 0' }}>{kicker}</p>
       )}
     </div>
   );

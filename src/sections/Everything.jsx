@@ -1,8 +1,10 @@
 // Field — Everything else. Dense 3x3 grid of secondary product features.
 import React from 'react';
 import { C, fonts, SectionHead } from '../design/tokens.jsx';
+import { useIsMobile } from '../hooks/useViewport.jsx';
 
 export default function Everything() {
+  const isMobile = useIsMobile();
   const cells = [
     { tag: 'Subcontractors', title: 'Track every dollar to every sub.',
       body: 'Contact book by trade. Searchable assignment dropdown. Amount agreed vs. paid vs. outstanding for every sub on every job.',
@@ -34,7 +36,7 @@ export default function Everything() {
   ];
 
   return (
-    <section data-screen-label="04 Everything else" style={{ background: C.paper2, padding: '120px 56px 100px', borderTop: `1px solid ${C.b}` }}>
+    <section data-screen-label="04 Everything else" style={{ background: C.paper2, padding: isMobile ? '64px 20px 56px' : '120px 56px 100px', borderTop: `1px solid ${C.b}` }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
       <SectionHead
         folio="№ 04"
@@ -43,9 +45,9 @@ export default function Everything() {
         kicker={`The pitch is "AI front desk." The reality is a complete operating system — subs, costing, calendar, reviews, permissions, the works. All in one login.`}
       />
 
-      <div style={{ marginTop: 72, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 0, borderTop: `1px solid ${C.b}`, borderLeft: `1px solid ${C.b}` }}>
+      <div style={{ marginTop: isMobile ? 48 : 72, display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: 0, borderTop: `1px solid ${C.b}`, borderLeft: isMobile ? 'none' : `1px solid ${C.b}`, borderRight: isMobile ? `1px solid ${C.b}` : 'none' }}>
         {cells.map((c, i) => (
-          <article key={c.tag} style={{ borderRight: `1px solid ${C.b}`, borderBottom: `1px solid ${C.b}`, padding: '32px 28px 28px', background: C.paper, display: 'flex', flexDirection: 'column', gap: 14, minHeight: 280 }}>
+          <article key={c.tag} style={{ borderRight: isMobile ? 'none' : `1px solid ${C.b}`, borderLeft: isMobile ? `1px solid ${C.b}` : 'none', borderBottom: `1px solid ${C.b}`, padding: '32px 24px 28px', background: C.paper, display: 'flex', flexDirection: 'column', gap: 14, minHeight: isMobile ? 'auto' : 280 }}>
             <div style={{ fontFamily: fonts.mono, fontSize: 10, color: C.a, letterSpacing: '0.12em', fontWeight: 600 }}>№ {String(i + 1).padStart(2, '0')} · {c.tag.toUpperCase()}</div>
             <h3 style={{ fontFamily: fonts.serif, fontSize: 24, lineHeight: 1.15, letterSpacing: '-0.02em', fontWeight: 400, margin: 0 }}>{c.title}</h3>
             <p style={{ fontSize: 13.5, lineHeight: 1.55, color: C.m, margin: 0 }}>{c.body}</p>

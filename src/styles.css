@@ -31,3 +31,8 @@ html, body {
 
 .rm-hero-wrap { width: 100%; height: 820px; position: relative; }
 .rm-hero-wrap > div { position: absolute; inset: 0; }
+
+@media (max-width: 767px) {
+  .rm-hero-wrap { height: auto; }
+  .rm-hero-wrap > div { position: relative; inset: auto; }
+}

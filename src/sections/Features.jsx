@@ -1,9 +1,11 @@
 // Features — toggle between four product surfaces
 import React from 'react';
 import { C, fonts, SectionHead } from '../design/tokens.jsx';
+import { useIsMobile } from '../hooks/useViewport.jsx';
 import FeatureMock from './FeatureMock.jsx';
 
 export default function Features() {
+  const isMobile = useIsMobile();
   const [active, setActive] = React.useState('jobs');
 
   const tabs = [
@@ -37,7 +39,7 @@ export default function Features() {
   };
 
   return (
-    <section id="product" data-screen-label="03 What it does" style={{ background: C.bg, padding: '120px 56px 100px', borderTop: `1px solid ${C.b}`, scrollMarginTop: 80 }}>
+    <section id="product" data-screen-label="03 What it does" style={{ background: C.bg, padding: isMobile ? '64px 20px 56px' : '120px 56px 100px', borderTop: `1px solid ${C.b}`, scrollMarginTop: 80 }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
       <SectionHead
         folio="№ 03"
@@ -46,7 +48,7 @@ export default function Features() {
         kicker="The same agent that books the call writes the quote, schedules the truck, and sends the invoice. Stop bouncing between five apps that don't talk to each other."
       />
 
-      <div style={{ marginTop: 64, display: 'flex', borderTop: `1px solid ${C.b}`, borderBottom: `1px solid ${C.b}`, marginBottom: 40 }}>
+      <div style={{ marginTop: isMobile ? 40 : 64, display: 'flex', flexDirection: isMobile ? 'column' : 'row', borderTop: `1px solid ${C.b}`, borderBottom: `1px solid ${C.b}`, marginBottom: isMobile ? 28 : 40 }}>
         {tabs.map((t, i) => {
           const on = t.id === active;
           return (
@@ -54,26 +56,27 @@ export default function Features() {
               key={t.id}
               onClick={() => setActive(t.id)}
               style={{
-                flex: 1, padding: '24px 26px',
+                flex: 1, padding: isMobile ? '18px 20px' : '24px 26px',
                 background: on ? C.ink : 'transparent',
                 color: on ? C.bg : C.ink,
                 border: 'none',
-                borderRight: i < tabs.length - 1 ? `1px solid ${on ? C.ink : C.b}` : 'none',
+                borderRight: !isMobile && i < tabs.length - 1 ? `1px solid ${on ? C.ink : C.b}` : 'none',
+                borderBottom: isMobile && i < tabs.length - 1 ? `1px solid ${on ? C.ink : C.b}` : 'none',
                 cursor: 'pointer', textAlign: 'left',
                 transition: 'background 0.18s, color 0.18s',
                 fontFamily: fonts.body,
               }}
             >
-              <div style={{ fontFamily: fonts.mono, fontSize: 10, color: on ? C.a : C.m, letterSpacing: '0.1em', marginBottom: 10 }}>{t.tag}</div>
-              <div style={{ fontFamily: fonts.serif, fontStyle: 'italic', fontSize: 24, marginBottom: 5, letterSpacing: '-0.01em' }}>{t.label}</div>
+              <div style={{ fontFamily: fonts.mono, fontSize: 10, color: on ? C.a : C.m, letterSpacing: '0.1em', marginBottom: isMobile ? 6 : 10 }}>{t.tag}</div>
+              <div style={{ fontFamily: fonts.serif, fontStyle: 'italic', fontSize: isMobile ? 20 : 24, marginBottom: 5, letterSpacing: '-0.01em' }}>{t.label}</div>
               <div style={{ fontSize: 13, color: on ? 'rgba(245,241,232,0.7)' : C.m, lineHeight: 1.4 }}>{t.blurb}</div>
             </button>
           );
         })}
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 280px', gap: 40, alignItems: 'start' }}>
-        <div style={{ minHeight: 520 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 280px', gap: isMobile ? 32 : 40, alignItems: 'start' }}>
+        <div style={{ minHeight: isMobile ? 'auto' : 520 }}>
           <FeatureMock id={active} />
         </div>
         <div style={{ paddingTop: 8 }}>

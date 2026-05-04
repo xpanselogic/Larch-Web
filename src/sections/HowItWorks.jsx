@@ -3,8 +3,10 @@
 // schematic illustration per step (pure CSS/SVG, no images).
 import React from 'react';
 import { C, fonts, SectionHead } from '../design/tokens.jsx';
+import { useIsMobile } from '../hooks/useViewport.jsx';
 
 export default function HowItWorks() {
+  const isMobile = useIsMobile();
   const steps = [
     {
       n: '01',
@@ -30,7 +32,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" data-screen-label="02 How it works" style={{ background: C.bg, padding: '120px 56px 100px', position: 'relative', borderTop: `1px solid ${C.b}`, scrollMarginTop: 80 }}>
+    <section id="how-it-works" data-screen-label="02 How it works" style={{ background: C.bg, padding: isMobile ? '64px 20px 56px' : '120px 56px 100px', position: 'relative', borderTop: `1px solid ${C.b}`, scrollMarginTop: 80 }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
       <SectionHead
         folio="№ 02"
@@ -39,17 +41,23 @@ export default function HowItWorks() {
         kicker="Setup takes an afternoon. After that, Renderment runs the parts of the business you don't want to."
       />
 
-      <div style={{ marginTop: 80, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 0, borderTop: `1px solid ${C.b}` }}>
+      <div style={{ marginTop: isMobile ? 48 : 80, display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: 0, borderTop: `1px solid ${C.b}` }}>
         {steps.map((s, i) => (
-          <article key={s.n} style={{ padding: '40px 32px 40px 0', borderRight: i < 2 ? `1px solid ${C.b}` : 'none', paddingLeft: i > 0 ? 32 : 0, position: 'relative' }}>
+          <article key={s.n} style={{
+            padding: isMobile ? '32px 0' : '40px 32px 40px 0',
+            borderRight: !isMobile && i < 2 ? `1px solid ${C.b}` : 'none',
+            borderBottom: isMobile && i < steps.length - 1 ? `1px solid ${C.b}` : 'none',
+            paddingLeft: !isMobile && i > 0 ? 32 : 0,
+            position: 'relative',
+          }}>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 18, marginBottom: 24 }}>
-              <div style={{ fontFamily: fonts.serif, fontStyle: 'italic', fontSize: 120, lineHeight: 0.85, color: C.a, letterSpacing: '-0.04em' }}>{s.n}</div>
+              <div style={{ fontFamily: fonts.serif, fontStyle: 'italic', fontSize: isMobile ? 80 : 120, lineHeight: 0.85, color: C.a, letterSpacing: '-0.04em' }}>{s.n}</div>
               <div style={{ fontFamily: fonts.mono, fontSize: 11, color: C.m, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600 }}>
                 {s.eyebrow}
               </div>
             </div>
 
-            <h3 style={{ fontFamily: fonts.serif, fontSize: 34, lineHeight: 1.1, letterSpacing: '-0.02em', fontWeight: 400, margin: '0 0 16px 0', color: C.ink, minHeight: 84 }}>
+            <h3 style={{ fontFamily: fonts.serif, fontSize: isMobile ? 24 : 34, lineHeight: 1.1, letterSpacing: '-0.02em', fontWeight: 400, margin: '0 0 16px 0', color: C.ink, minHeight: isMobile ? 'auto' : 84 }}>
               {s.title}
             </h3>
 

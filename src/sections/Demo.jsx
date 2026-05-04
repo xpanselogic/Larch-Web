@@ -1,8 +1,10 @@
 // Field — Expanded live demo. A SMS thread with the agent, with status side-rail.
 import React from 'react';
 import { C, fonts, SectionHead } from '../design/tokens.jsx';
+import { useIsMobile } from '../hooks/useViewport.jsx';
 
 export default function Demo() {
+  const isMobile = useIsMobile();
   const [step, setStep] = React.useState(0);
 
   const script = [
@@ -22,7 +24,7 @@ export default function Demo() {
   const visible = script.slice(0, Math.min(step, script.length));
 
   return (
-    <section data-screen-label="05 Live demo" style={{ background: C.paper2, padding: '120px 56px 100px', borderTop: `1px solid ${C.b}` }}>
+    <section data-screen-label="05 Live demo" style={{ background: C.paper2, padding: isMobile ? '64px 20px 56px' : '120px 56px 100px', borderTop: `1px solid ${C.b}` }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
       <SectionHead
         folio="№ 05"
@@ -31,7 +33,7 @@ export default function Demo() {
         kicker="A customer with a busted furnace. A shop owner asleep. The agent does what a good front-desk would do — answers in your voice, captures what the tech needs, and tags it for you to confirm in the morning."
       />
 
-      <div style={{ marginTop: 64, display: 'grid', gridTemplateColumns: '1fr 380px', gap: 40, alignItems: 'start' }}>
+      <div style={{ marginTop: isMobile ? 40 : 64, display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 380px', gap: isMobile ? 32 : 40, alignItems: 'start' }}>
         <div style={{ background: C.paper, border: `1px solid ${C.bDark}`, borderRadius: 14, overflow: 'hidden', boxShadow: '0 30px 60px rgba(26,29,46,0.10)' }}>
           <div style={{ padding: '16px 22px', background: C.bg, borderBottom: `1px solid ${C.b}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>

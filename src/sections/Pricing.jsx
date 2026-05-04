@@ -4,8 +4,10 @@
 // honest with what Stripe can actually charge until those SKUs exist.
 import React from 'react';
 import { C, fonts, SectionHead } from '../design/tokens.jsx';
+import { useIsMobile } from '../hooks/useViewport.jsx';
 
 export default function Pricing() {
+  const isMobile = useIsMobile();
   const features = [
     ['AI front desk',           'Texts & calls answered 24/7. Missed-call auto-replies. Knows your hours, prices, service area.'],
     ['Jobs · Quotes · Invoices', 'The full pipeline. Quote accepts → job created → invoice fires on completion.'],
@@ -18,7 +20,7 @@ export default function Pricing() {
   ];
 
   return (
-    <section id="pricing" data-screen-label="06 Pricing" style={{ background: C.bg, padding: '120px 56px 100px', borderTop: `1px solid ${C.b}`, scrollMarginTop: 80 }}>
+    <section id="pricing" data-screen-label="06 Pricing" style={{ background: C.bg, padding: isMobile ? '64px 20px 56px' : '120px 56px 100px', borderTop: `1px solid ${C.b}`, scrollMarginTop: 80 }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
       <SectionHead
         folio="№ 06"
@@ -28,7 +30,7 @@ export default function Pricing() {
       />
 
       {/* Single hero pricing card */}
-      <div style={{ marginTop: 64, maxWidth: 760, margin: '64px auto 0', position: 'relative' }}>
+      <div style={{ marginTop: isMobile ? 48 : 64, maxWidth: 760, margin: isMobile ? '48px auto 0' : '64px auto 0', position: 'relative' }}>
         <div style={{
           position: 'absolute', top: -14, left: '50%', transform: 'translateX(-50%)',
           background: C.a, color: '#fff', padding: '6px 16px', borderRadius: 999,
@@ -37,8 +39,8 @@ export default function Pricing() {
 
         <div style={{
           background: C.paper, border: `1px solid ${C.bDark}`, borderRadius: 14,
-          padding: '48px 48px 40px', boxShadow: '0 30px 60px rgba(26,29,46,0.10)',
-          display: 'grid', gridTemplateColumns: '1fr 1px 1fr', gap: 40,
+          padding: isMobile ? '36px 24px 28px' : '48px 48px 40px', boxShadow: '0 30px 60px rgba(26,29,46,0.10)',
+          display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1px 1fr', gap: isMobile ? 28 : 40,
         }}>
           {/* Left column — price + CTA */}
           <div>
@@ -69,8 +71,8 @@ export default function Pricing() {
             </div>
           </div>
 
-          {/* Vertical rule */}
-          <div style={{ background: C.b, width: 1 }} />
+          {/* Rule — vertical on desktop, horizontal on mobile */}
+          <div style={{ background: C.b, width: isMobile ? '100%' : 1, height: isMobile ? 1 : '100%' }} />
 
           {/* Right column — features list */}
           <div>

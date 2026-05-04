@@ -4,6 +4,7 @@
 // trades that the product is for them too.
 import React from 'react';
 import { C, fonts } from '../design/tokens.jsx';
+import { useIsMobile } from '../hooks/useViewport.jsx';
 
 const TRADES = [
   'Plumbing', 'Electrical', 'HVAC', 'Roofing', 'Landscaping',
@@ -12,8 +13,9 @@ const TRADES = [
 ];
 
 export default function BuiltFor() {
+  const isMobile = useIsMobile();
   return (
-    <section id="customers" data-screen-label="01b Built for" style={{ background: C.paper2, padding: '72px 56px', borderTop: `1px solid ${C.b}`, borderBottom: `1px solid ${C.b}`, scrollMarginTop: 80 }}>
+    <section id="customers" data-screen-label="01b Built for" style={{ background: C.paper2, padding: isMobile ? '48px 20px' : '72px 56px', borderTop: `1px solid ${C.b}`, borderBottom: `1px solid ${C.b}`, scrollMarginTop: 80 }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 28 }}>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: 12, fontFamily: fonts.mono, fontSize: 11, color: C.a, letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600 }}>
@@ -23,7 +25,7 @@ export default function BuiltFor() {
           </span>
         </div>
 
-        <p style={{ fontFamily: fonts.serif, fontStyle: 'italic', fontSize: 28, lineHeight: 1.5, color: C.ink, textAlign: 'center', maxWidth: 1080, margin: '0 auto', letterSpacing: '-0.01em' }}>
+        <p style={{ fontFamily: fonts.serif, fontStyle: 'italic', fontSize: isMobile ? 20 : 28, lineHeight: 1.5, color: C.ink, textAlign: 'center', maxWidth: 1080, margin: '0 auto', letterSpacing: '-0.01em' }}>
           {TRADES.map((t, i) => (
             <React.Fragment key={t}>
               {t}
