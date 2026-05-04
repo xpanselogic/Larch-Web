@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from './sections/Nav.jsx';
 import HeroField from './sections/HeroField.jsx';
 import BuiltFor from './sections/BuiltFor.jsx';
+import AiOptional from './sections/AiOptional.jsx';
 import HowItWorks from './sections/HowItWorks.jsx';
 import Features from './sections/Features.jsx';
 import Everything from './sections/Everything.jsx';
@@ -62,6 +63,7 @@ export default function RendermentPage() {
         <HeroField />
       </div>
       <BuiltFor />
+      <AiOptional />
       <HowItWorks />
       <Features />
       <Everything />
