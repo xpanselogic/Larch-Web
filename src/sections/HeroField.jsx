@@ -12,29 +12,8 @@ export default function HeroField() {
   const C = { bg: '#f5f1e8', paper: '#fbf8f1', ink: '#1a1d2e', m: 'rgba(26,29,46,0.6)', d: 'rgba(26,29,46,0.3)', b: 'rgba(26,29,46,0.12)', a: '#c8421f' };
 
   return (
-    <div style={{ width: '100%', height: '100%', background: C.bg, color: C.ink, fontFamily: 'Geist, Inter, sans-serif', position: 'relative', overflow: 'hidden' }}>
-      <div style={{ position: 'absolute', top: 24, right: 56, fontFamily: 'Instrument Serif, serif', fontSize: 14, color: C.m, fontStyle: 'italic' }}>№ 01 · The Field</div>
-
-      <nav style={{ position: 'relative', zIndex: 2, padding: '24px 56px', borderBottom: `1px solid ${C.b}` }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: 1280 - 112, margin: '0 auto' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <div style={{ fontFamily: 'Instrument Serif, serif', fontSize: 26, fontWeight: 400, letterSpacing: '-0.02em', fontStyle: 'italic', color: C.a }}>R</div>
-            <span style={{ fontWeight: 600, fontSize: 17, letterSpacing: '-0.02em' }}>Renderment</span>
-          </div>
-          <div style={{ display: 'flex', gap: 32, fontSize: 14, color: C.ink, alignItems: 'center' }}>
-            {[
-              ['Product', '#product'],
-              ['Pricing', '#pricing'],
-              ['Customers', '#customers'],
-            ].map(([label, href]) => (
-              <a key={label} href={href} style={{ cursor: 'pointer', color: 'inherit', textDecoration: 'none' }}>{label}</a>
-            ))}
-            <span style={{ width: 1, height: 16, background: C.b }} />
-            <a href="https://app.renderment.com/login" style={{ cursor: 'pointer', color: 'inherit', textDecoration: 'none' }}>Sign in</a>
-            <a href="https://app.renderment.com/register" style={{ background: C.ink, color: C.bg, padding: '10px 18px', borderRadius: 6, fontSize: 13, fontWeight: 600, cursor: 'pointer', textDecoration: 'none', display: 'inline-block' }}>Start trial</a>
-          </div>
-        </div>
-      </nav>
+    <div style={{ width: '100%', height: '100%', background: C.bg, color: C.ink, fontFamily: 'Geist, Inter, sans-serif', position: 'relative', overflow: 'hidden', paddingTop: 74 }}>
+      <div style={{ position: 'absolute', top: 88, right: 56, fontFamily: 'Instrument Serif, serif', fontSize: 14, color: C.m, fontStyle: 'italic', zIndex: 1 }}>№ 01 · The Field</div>
 
       <div style={{ position: 'relative', zIndex: 2, display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 64, padding: '56px 56px 0', maxWidth: 1280, margin: '0 auto' }}>
         <div>
