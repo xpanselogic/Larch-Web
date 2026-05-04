@@ -37,14 +37,29 @@ export default function CTA() {
           <div style={{ fontSize: 13, color: 'rgba(245,241,232,0.5)', maxWidth: 280, lineHeight: 1.55 }}>The agentic operating system for trades. Built in Oakland, deployed in 47 states.</div>
         </div>
         {[
-          ['Product', ['Dispatch', 'Quotes', 'Invoices', 'Inbox', 'Pricing']],
-          ['Company', ['About', 'Customers', 'Careers', 'Press']],
-          ['Get help', ['Setup guide', 'Documentation', 'support@renderment.com', '(415) 555-RENDER']],
+          ['Product', [
+            ['Dispatch', '#product'],
+            ['Quotes', '#product'],
+            ['Invoices', '#product'],
+            ['Inbox', '#product'],
+            ['Pricing', '#pricing'],
+          ]],
+          ['Company', [
+            ['About', '#how-it-works'],
+            ['Customers', '#customers'],
+            ['Careers', 'mailto:support@renderment.com?subject=Careers%20inquiry'],
+            ['Press', 'mailto:support@renderment.com?subject=Press%20inquiry'],
+          ]],
+          ['Get help', [
+            ['Setup guide', 'mailto:support@renderment.com?subject=Setup%20help'],
+            ['Documentation', 'mailto:support@renderment.com?subject=Documentation%20request'],
+            ['support@renderment.com', 'mailto:support@renderment.com'],
+          ]],
         ].map(([h, items]) => (
           <div key={h}>
             <div style={{ fontFamily: fonts.mono, fontSize: 10, color: C.a, letterSpacing: '0.12em', marginBottom: 14 }}>{h.toUpperCase()}</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
-              {items.map(it => <a key={it} href="#" style={{ fontSize: 13, color: 'rgba(245,241,232,0.7)', textDecoration: 'none' }}>{it}</a>)}
+              {items.map(([label, href]) => <a key={label} href={href} style={{ fontSize: 13, color: 'rgba(245,241,232,0.7)', textDecoration: 'none' }}>{label}</a>)}
             </div>
           </div>
         ))}
