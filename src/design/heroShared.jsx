@@ -5,7 +5,7 @@ import React from 'react';
 
 export const TRADES = [
   {
-    id: 'plumbing', name: 'Plumbing', verb: 'plumbers',
+    id: 'plumbing', name: 'Plumbing', verb: 'plumbers', rather: 'in the truck',
     job: 'Smith Residence · Water heater swap',
     phases: ['Drain old tank', 'Set new tank', 'Connect supply', 'Test & cleanup'],
     sms: [
@@ -17,7 +17,7 @@ export const TRADES = [
     invoice: { num: 'INV-1042', label: 'Davis · Repipe', amount: '$3,840' },
   },
   {
-    id: 'electrical', name: 'Electrical', verb: 'electricians',
+    id: 'electrical', name: 'Electrical', verb: 'electricians', rather: 'on the job',
     job: 'Patel Residence · Panel upgrade',
     phases: ['Permit pull', 'Disconnect old panel', 'Install 200A', 'Inspection'],
     sms: [
@@ -29,7 +29,7 @@ export const TRADES = [
     invoice: { num: 'INV-1038', label: 'Chen · Service call', amount: '$420' },
   },
   {
-    id: 'hvac', name: 'HVAC', verb: 'HVAC techs',
+    id: 'hvac', name: 'HVAC', verb: 'HVAC techs', rather: 'on the rooftop',
     job: 'Garcia Residence · 3-ton condenser',
     phases: ['Pump down', 'Set new unit', 'Vacuum & charge', 'Startup test'],
     sms: [
@@ -41,7 +41,7 @@ export const TRADES = [
     invoice: { num: 'INV-1051', label: 'Lopez · Maintenance', amount: '$185' },
   },
   {
-    id: 'roofing', name: 'Roofing', verb: 'roofers',
+    id: 'roofing', name: 'Roofing', verb: 'roofers', rather: 'on the roof',
     job: 'Nguyen Residence · Re-roof',
     phases: ['Tear-off', 'Underlayment', 'Shingle install', 'Final cleanup'],
     sms: [
@@ -53,7 +53,7 @@ export const TRADES = [
     invoice: { num: 'INV-1029', label: 'Walker · Repair', amount: '$1,260' },
   },
   {
-    id: 'landscape', name: 'Landscaping', verb: 'landscapers',
+    id: 'landscape', name: 'Landscaping', verb: 'landscapers', rather: 'in the dirt',
     job: 'Brooks Residence · Yard reset',
     phases: ['Clear & grade', 'Edge & bed', 'Sod & mulch', 'Walk-through'],
     sms: [

@@ -33,7 +33,7 @@ export default function HeroField() {
           </h1>
 
           <p style={{ fontSize: isMobile ? 16 : 19, lineHeight: 1.55, color: C.m, maxWidth: 540, margin: isMobile ? '0 0 28px 0' : '0 0 36px 0' }}>
-            Renderment is the operations OS for trade businesses — jobs, quotes, invoices, and customer texts handled in one quiet place. Made for {t.verb} who'd rather be on the truck.
+            Renderment is the operations OS for trade businesses — jobs, quotes, invoices, and customer texts handled in one quiet place. Made for {t.verb} who'd rather be {t.rather}.
           </p>
 
           <div style={{ marginBottom: isMobile ? 28 : 36 }}>
